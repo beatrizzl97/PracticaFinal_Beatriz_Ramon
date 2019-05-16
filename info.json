@@ -1,0 +1,12 @@
+{
+    "explication": "Bienvenidos a la nueva versión de snake, donde teneis que aplicar el antibiotico a las bacterias y asi sumar puntos",
+    "points": "Points:",
+    "personal":"Realizado por Beatriz Zorrilla López y Ramon Vilardell",
+    "gameover":"Game Over",
+    "puntuacio":"Punts totals: ",
+    "click": "Torna a jugar!",
+    "r" : 240,
+    "g" : 75,
+    "b" : 75
+
+}
