@@ -6,7 +6,7 @@ function Snake(_position){
   this.length = 0;
   this.factor = 1;
 }
-
+/*EL POP ELIMINA LA ULTIMA POSICIO DEL BODY DEL ARRAY, UNSHIFT AFEGIM AL PRINCIPI DEL ARRAY */
 Snake.prototype.update = function () {
   this.body.unshift(this.position.copy());
   if (this.body.length > this.length) {
@@ -16,6 +16,7 @@ Snake.prototype.update = function () {
 };
 
 Snake.prototype.draw = function () {
+  /*4 IMATGES PER CADA POSICIO DE CAP, SEGONS TAMANY DEL QUADRAT DE LA GREAELLA*/
 
   if (keyCode === LEFT_ARROW && snake.speed.x != GRID_SIZE) {
     image(cap,this.position.x, this.position.y, GRID_SIZE , GRID_SIZE);
@@ -39,6 +40,8 @@ Snake.prototype.draw = function () {
   });
   
 };
+
+/*AUGMENTEM VELOCITAT DEL SNAKE A MEDIDA DE QUE ENS FEIM MES LLARGS */
 
 Snake.prototype.addBodySegment = function () {
   if((this.length % 3) == 0){

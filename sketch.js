@@ -19,7 +19,7 @@ var snake;
 var food;
 var info;
 
-
+/* CARGUEM ABANS MÚSICA */
 function preload(){
   song = loadSound("apple.mp3");
   endsong = loadSound("gameover.mp3")
@@ -44,11 +44,14 @@ function setup() {
   cap3 = loadImage("cap3.png");
   cap4 = loadImage("cap4.png");
 
+  /* CRIDEM LA FUNCIÓ DE SNAKE I FOOD*/
+
   snake = new Snake(createVector(SCREEN_SIZE.x / 2, SCREEN_SIZE.y / 2));
   food = new Food();
 }
 
 function draw() {
+  /* AL DRAW DIBUXEIM LES SEGÜENTS FUNCIONS */
   background(255);
   if (!gameOver) {
     snake.update();
@@ -62,6 +65,8 @@ function draw() {
 }
 
 function gameUpdate() {
+  /* DETECTEM QUAN LA SNAKE TOCA LES PARETS I GAME OVEER = TRUE*/
+
   if (snake.position.x < 0) {
     backsong.pause();
     endsong.play();
@@ -80,6 +85,9 @@ function gameUpdate() {
     gameOver=true;
   }
 
+  /*DETECTEM SI EL SNAKE S'HA TOCAT A ELLA MATEIXA */
+  /*SLICE ENS PERMET LA POSICIO DEL ARRAY DEL SNAKE */
+  
   snake.body.slice(1).forEach(function (segment) {
     if (segment.equals(snake.body[0])) {
       gameOver = true;
@@ -88,6 +96,7 @@ function gameUpdate() {
     }
   });
 
+  /*DETECTEM SI EL SNAKE S'HA MENJAT LA POMA */
   if (snake.position.equals(food.position)){
     food.add();
     song.play();
@@ -121,7 +130,7 @@ function gameOverUpdate() {
   text(info.cred, SCREEN_SIZE.x / 2, SCREEN_SIZE.y);
   
 }
-
+/*TORNEM A JUGAR, REFRESCAN LA FUNCIO DE SNAKE I FOOD*/
 function mouseClicked() {
   if (gameOver) {
     backsong.play();
