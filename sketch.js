@@ -37,8 +37,6 @@ function setup() {
   backsong.play();
 
   
-  
-  
   poma = loadImage("pom.png");
   cap = loadImage("cap.png");
   cos = loadImage("cos.png");
@@ -46,8 +44,6 @@ function setup() {
   cap3 = loadImage("cap3.png");
   cap4 = loadImage("cap4.png");
 
-  
- 
   snake = new Snake(createVector(SCREEN_SIZE.x / 2, SCREEN_SIZE.y / 2));
   food = new Food();
 }
@@ -84,7 +80,6 @@ function gameUpdate() {
     gameOver=true;
   }
 
-  //*********************************** */
   snake.body.slice(1).forEach(function (segment) {
     if (segment.equals(snake.body[0])) {
       gameOver = true;
@@ -103,6 +98,7 @@ function gameUpdate() {
 }
 
 function textUpdate() {
+  //JSON POINTS
   textSize(150);
   fill(255, 100, 100, 100);
   textAlign(CENTER, CENTER);
@@ -111,6 +107,7 @@ function textUpdate() {
 }
 
 function gameOverUpdate() {
+  //JSON INFO
   frameRate(FRAME_RATE);
   background(234,136,93,100);
   textSize(120);
@@ -121,26 +118,9 @@ function gameOverUpdate() {
   text(info.puntuacio + snake.length.toString(), SCREEN_SIZE.x / 2, 150);
   textAlign(CENTER, BOTTOM);
   textSize(40);
-  text(info.click, SCREEN_SIZE.x / 2, SCREEN_SIZE.y);
+  text(info.cred, SCREEN_SIZE.x / 2, SCREEN_SIZE.y);
   
 }
-/*
-function keyPressed() {
-  if (keyCode === LEFT_ARROW && snake.speed.x != GRID_SIZE) {
-    snake.speed.x = -GRID_SIZE;
-    snake.speed.y = 0;
-  } else if (keyCode === RIGHT_ARROW && snake.speed.x != -GRID_SIZE) {
-    snake.speed.x = GRID_SIZE;
-    snake.speed.y = 0;
-  }else if (keyCode === UP_ARROW && snake.speed.y != GRID_SIZE) {
-    snake.speed.x = 0;
-    snake.speed.y = -GRID_SIZE;
-  }else if (keyCode === DOWN_ARROW && snake.speed.y != -GRID_SIZE) {
-    snake.speed.x = 0;
-    snake.speed.y = GRID_SIZE;
-  }
-  
-}*/
 
 function mouseClicked() {
   if (gameOver) {
